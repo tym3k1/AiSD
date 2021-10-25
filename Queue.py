@@ -17,10 +17,10 @@ class Queue:
         return len(self.queue)
 
     def __str__(self):
-        strng = ""
+        s = ""
         for x in range(len(self.queue)):
-            strng+= str(self.queue.node(x).value)+", "
-        return strng
+            s+= str(self.queue.node(x).value)+", "
+        return s
 
 
 

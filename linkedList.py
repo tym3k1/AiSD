@@ -25,30 +25,27 @@ class LinkedList:
             newNode = Node(value)
             newNode.next = self.head
             self.head = newNode
+            self.tail = newNode.next
             self.num += 1
 
     def append(self, value:Any) -> None:
         if self.head == None:
-            newNode = Node(value)
-            self.head = newNode
-            self.tail = newNode.next
-            self.num += 1
+            self.push(value)
         else:
             newNode = Node(value)
-            tmp = self.head
-            while(tmp.next!=None):
-                tmp = tmp.next
+            tmp = self.tail
             tmp.next = newNode
-            self.tail = newNode.next
+            self.tail = tmp.next
             self.num += 1
 
     def node(self, at:int) -> None:
-        poz = 0
-        tmp = self.head
-        while(poz<at):
-            tmp = tmp.next
-            poz+=1
-        return tmp
+        if at<self.num:
+            poz = 0
+            tmp = self.head
+            while(poz<at):
+                tmp = tmp.next
+                poz+=1
+            return tmp
     
     def insert(self, value: Any, after: Node) -> None:
         newNode = Node(value)
@@ -59,28 +56,27 @@ class LinkedList:
     def pop(self) -> Any:
         tmp = self.head
         if(tmp!=None):
-            zm = self.head.value
             self.head = self.head.next
-            tmp = None
         self.num -= 1
-        return self.head
+        return tmp.value
 
     def remove_last(self) -> Any:
         if(self.head != None):
             if(self.head.next == None):
                 self.head = None
                 self.num -= 1
+                return self.head.value
             else:
                 tmp = self.head
                 while(tmp.next.next != None):
                     tmp = tmp.next
                 tmpNext = tmp.next
-                zm = tmp.next.value
+                zm = tmp.next
                 tmp.next = None
                 tmpNext = None
                 self.num -= 1
                 self.tail = tmp
-            return zm
+                return zm.value
 
     def remove(self, after: Node) -> Any:
         prv = after
@@ -95,7 +91,10 @@ class LinkedList:
         s = ''
         tmp = self.head
         while tmp:
-            s += f"{tmp.value} -> "
+            if tmp.next==None:
+                s += f"{tmp.value}"
+            else:
+                s += f"{tmp.value} -> "
             tmp = tmp.next
         return s
     
@@ -121,12 +120,18 @@ list_.push(0)
 
 list_.append(9)
 list_.append(10)
-""" 
+print(list_)
+print(list_)
 middle_node = list_.node(at=1)
 list_.insert(5, after=middle_node)
+print(list_)
+print('\n')
 
 first_element = list_.node(at=0)
 returned_first_element = list_.pop()
+assert first_element.value == returned_first_element
+
+print(returned_first_element)
 
 last_element = list_.node(at=3)
 returned_last_element = list_.remove_last()
@@ -141,4 +146,4 @@ list_.remove(second_node)
 print(list_)
 print(len(list_))
 
- """
+ 
