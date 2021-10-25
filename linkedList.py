@@ -37,7 +37,7 @@ class LinkedList:
             tmp.next = newNode
             self.tail = tmp.next
             self.num += 1
-
+#krotsze mozna zrobic
     def node(self, at:int) -> None:
         if at<self.num:
             poz = 0
@@ -46,20 +46,20 @@ class LinkedList:
                 tmp = tmp.next
                 poz+=1
             return tmp
-    
+#if co gdyby
     def insert(self, value: Any, after: Node) -> None:
         newNode = Node(value)
         newNode.next = after.next
         after.next = newNode
         self.num += 1
-
+#if
     def pop(self) -> Any:
         tmp = self.head
         if(tmp!=None):
             self.head = self.head.next
         self.num -= 1
         return tmp.value
-
+#zmien
     def remove_last(self) -> Any:
         if(self.head != None):
             if(self.head.next == None):
@@ -77,7 +77,7 @@ class LinkedList:
                 self.num -= 1
                 self.tail = tmp
                 return zm.value
-
+#if co gdyby
     def remove(self, after: Node) -> Any:
         prv = after
         tmp = after.next

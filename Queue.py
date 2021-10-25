@@ -6,7 +6,7 @@ class Queue:
 
     def peek(self) -> Any:
         return self.queue.head.value
-
+#cos z appendem 
     def enqueue(self, element: Any) -> None:
         self.queue.append(element)
 
@@ -19,7 +19,10 @@ class Queue:
     def __str__(self):
         s = ""
         for x in range(len(self.queue)):
-            s+= str(self.queue.node(x).value)+", "
+            if x == len(self.queue):
+                s+= str(self.queue.node(x).value)
+            else:
+                s+= str(self.queue.node(x).value)+", "
         return s
 
 
