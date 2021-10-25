@@ -19,19 +19,5 @@ class Stack:
         for x in range(len(self.stack)):
             s+= str(self.stack.node(x).value)+"\n"
         return s
-        
-
-
-stack = Stack()
-
-
-stack.push(3)
-stack.push(10)
-stack.push(1)
-print(stack)
-
-stack.pop()
-print('')
-print(stack)
 
 
