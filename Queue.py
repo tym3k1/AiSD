@@ -44,3 +44,5 @@ assert str(queue) == 'klient2, klient3'
 assert len(queue) == 2
 
 print(queue)
+
+#

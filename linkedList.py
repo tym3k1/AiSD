@@ -141,4 +141,7 @@ assert str(list_) == '1 -> 5'
 
 print(list_)
 
+#co to za kod,
+#co sie czlowiek boi go zmieniac 
+
  
