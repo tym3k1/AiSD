@@ -5,7 +5,7 @@ class BinaryTree:
     root: BinaryNode
 
     def __init__(self, value) -> None:
-            if value != type(BinaryNode):
+            if value is not type(BinaryNode):
                 self.root = BinaryNode(value)
             self.root = value
 
